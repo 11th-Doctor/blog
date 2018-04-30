@@ -4,14 +4,14 @@
 
 	class PagesController extends Controller {
 		public function getIndex() {
-			return view('welcome');
+			return view('pages.welcome'); //gapes/welcome
 		}
 
 		public function getAbout() {
-			return view('about');
+			return view('pages.about');
 		}
 
 		public function getContact() {
-			return view('contact');
+			return view('pages.contact');
 		}
 	}
