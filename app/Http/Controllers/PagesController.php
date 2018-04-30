@@ -8,7 +8,14 @@
 		}
 
 		public function getAbout() {
-			return view('pages.about');
+
+			$name = 'Daryl';
+			$email = 'august9382@gmail.com';
+			$data = [];
+ 			$data['name'] = $name;
+ 			$data['email'] = $email;
+ 			//with('data',$data);
+			return view('pages.about')->withData($data);
 		}
 
 		public function getContact() {

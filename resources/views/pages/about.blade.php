@@ -79,9 +79,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    有關於我
+                    關於 {{$data['name']}}
                 </div>
-                <p>This is the beginning of my Laravel journey</p>
+                <p>連絡信箱: {{$data['email']}}</p>
 
                 <div class="links">
                     <a href="#">Facebook</a>
