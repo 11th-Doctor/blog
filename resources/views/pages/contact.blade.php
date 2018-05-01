@@ -71,7 +71,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">訊息: </label>
-                        <textarea name="message" id="message" class="form-control" cols="30" rows="10">請在此處輸數訊息...</textarea>
+                        <textarea name="message" id="message" class="form-control" cols="30" rows="10" placeholder="請在此輸入訊息..."></textarea>
                     </div>
                     <input type="submit" class="btn btn-success" value="送出訊息" \>
                 </form>
