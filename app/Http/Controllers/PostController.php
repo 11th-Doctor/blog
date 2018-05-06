@@ -76,8 +76,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        //find the post in the database and save as var
+        $post = Post::find($id);
+
+        //retun the view and pass in the var we previously created
+        return view('posts.edit')->withPost($post);
     }
 
     /**
