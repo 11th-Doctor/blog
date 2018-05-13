@@ -15,9 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        $myThis = $this;
-        return view('posts.index')->withPosts($posts)->withMyThis($myThis);
+        $posts = Post::orderBy('id','desc')->paginate(10);
+        return view('posts.index')->withPosts($posts);
     }
 
     /**
@@ -124,7 +123,7 @@ class PostController extends Controller
         $post =  Post::find($id);
 
         $post->delete();
-        
+
         Session::flash('success','貼文已成功刪除');
         return redirect()->route('posts.index');
     }
