@@ -16,8 +16,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-
-        return view('posts.index')->withPosts($posts);
+        $myThis = $this;
+        return view('posts.index')->withPosts($posts)->withMyThis($myThis);
     }
 
     /**
@@ -93,7 +93,24 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validate the data
+        $this->validate($request,array(
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ));
+
+        //Save the data to the database
+        $post = Post::find($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+
+        $post->save();
+
+        //Set flash data with success message
+        Session::flash('success','儲存成功');
+
+        //Redirect with flash data to posts.show
+        return redirect()->route('posts.show',$post->id);
     }
 
     /**
@@ -104,6 +121,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post =  Post::find($id);
+
+        $post->delete();
+        
+        Session::flash('success','貼文已成功刪除');
+        return redirect()->route('posts.index');
     }
 }

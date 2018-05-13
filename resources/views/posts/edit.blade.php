@@ -5,7 +5,7 @@
 @section('content')
 
 	<div class="row">
-		{!!Form::model($post,['route' => ['posts.update',$post->id]])!!}
+		{!!Form::model($post,['route' => ['posts.update',$post->id],'method'=>'PUT'])!!}
 		<div class="col-md-8">
 			{{Form::label('title','標題:')}}
 			{{Form::text('title',null,['class' => 'form-control input-lg'])}}
@@ -29,7 +29,7 @@
 						{!!Html::linkRoute('posts.show','取消',array($post->id),array('class' => 'btn btn-danger btn-block'))!!}
 					</div>
 					<div class="col-md-6">
-						{!!Html::linkRoute('posts.update','儲存修改',array($post->id),array('class'=>'btn btn-success btn-block'))!!}
+						{!!Form::submit('儲存修改',['class'=>'btn btn-success btn-block'])!!}
 					</div>
 				</div>
 			</div>
