@@ -20,37 +20,17 @@
 
     <div class="row">
         <div class="col-md-8">
+          
+          @foreach($posts as $post)
             <div class="post">
-              <h3>Post Title</h3>
+              <h3>{{$post->title}}</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ab optio nemo alias, voluptate sunt labore delectus culpa eligendi vitae, magni reiciendis tempora facilis maxime aperiam obcaecati sit, dolorem non?
+                {{substr($post->body,0,200)}} {{strlen($post->body) > 200 ? '...':''}}
               </p>
-              <a href="#" class="btn btn-primary">繼續閱讀...</a>
+              <a href="{{route('posts.show',[$post->id])}}" class="btn btn-primary">繼續閱讀...</a>
             </div>
+          @endforeach
 
-            <div class="post">
-              <h3>Post Title</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ab optio nemo alias, voluptate sunt labore delectus culpa eligendi vitae, magni reiciendis tempora facilis maxime aperiam obcaecati sit, dolorem non?
-              </p>
-              <a href="#" class="btn btn-primary">繼續閱讀...</a>
-            </div>
-
-            <div class="post">
-              <h3>Post Title</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ab optio nemo alias, voluptate sunt labore delectus culpa eligendi vitae, magni reiciendis tempora facilis maxime aperiam obcaecati sit, dolorem non?
-              </p>
-              <a href="#" class="btn btn-primary">繼續閱讀...</a>
-            </div>
-
-            <div class="post">
-              <h3>Post Title</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ab optio nemo alias, voluptate sunt labore delectus culpa eligendi vitae, magni reiciendis tempora facilis maxime aperiam obcaecati sit, dolorem non?
-              </p>
-              <a href="#" class="btn btn-primary">繼續閱讀...</a>
-            </div>
         </div>
         <div class="col-md-3 col-md-offset-1">
           <h2>Sidebar</h2>
