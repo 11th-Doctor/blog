@@ -31,8 +31,9 @@
 			  		<tr>
 			  			<td>{{$post->id}}</td>
 			  			<td>{{$post->title}}</td>
-			  			<td>{{substr($post->body,0,50)}}
-			  				{{strlen($post->body) >= 50 ? '...':''}}</td>
+			  			<td>{{mb_substr($post->body,0,45,'UTF-8')}}
+			  				{{strlen($post->body) >= 50 ? '...':''}}
+			  				</td>
 			  			<td>{{date('Y-m-d H.i A',strtotime($post->created_at))}}</td>
 			  			<td>
 			  				<a href="{{route('posts.show',$post->id)}}" class="btn btn-default">繼續閱讀</a>
@@ -42,9 +43,6 @@
 			  	@endforeach
 			  </tbody>
 			</table>
-			<div class="text-center">
-				{{$posts->links()}}
-			</div>
 		</div>
 	</div>
 @endsection

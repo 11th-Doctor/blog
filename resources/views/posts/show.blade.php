@@ -10,12 +10,16 @@
 			<div class="col-md-4">
 				<div class="well">
 					<dl class="dl-horizontal">
-					  <dt>建立時間: </dt>
-					  <dd>{{date('Y-m-d-l G.i.s A',strtotime($post->created_at))}}</dd>
+						<label for="slu">Url:</label>
+						<p><a href="{{$post->slug}}">{{url($post->slug)}}</a></p>
 					</dl>
 					<dl class="dl-horizontal">
-					  <dt>上次更新時間: </dt>
-					  <dd>{{date('Y-m-d-l G.i.s A',strtotime($post->created_at))}}</dd>
+					  <label>建立時間: </label>
+					  <p>{{date('Y-m-d-l G.i.s A',strtotime($post->created_at))}}</p>
+					</dl>
+					<dl class="dl-horizontal">
+					  <label>上次更新時間: </label>
+					  <p>{{date('Y-m-d-l G.i.s A',strtotime($post->created_at))}}</p>
 					</dl>
 					<hr>
 					<div class="row">
