@@ -25,9 +25,9 @@
             <div class="post">
               <h3>{{$post->title}}</h3>
               <p>
-                {{substr($post->body,0,200)}} {{strlen($post->body) > 200 ? '...':''}}
+                {{mb_substr($post->body,0,200,'UTF-8')}} {{strlen($post->body) > 200 ? '...':''}}
               </p>
-              <a href="{{route('posts.show',[$post->id])}}" class="btn btn-primary">繼續閱讀...</a>
+              <a href="{{Route('blog.single',$post->slug)}}" class="btn btn-primary">繼續閱讀</a>
             </div>
           @endforeach
 
