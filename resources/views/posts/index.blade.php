@@ -43,6 +43,11 @@
 			  	@endforeach
 			  </tbody>
 			</table>
+			<div class="col-md-12">
+				<div class="text-center">
+					{!!$posts->links()!!}
+				</div>
+			</div>
 		</div>
 	</div>
 @endsection
