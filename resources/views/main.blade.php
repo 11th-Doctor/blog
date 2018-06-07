@@ -6,20 +6,23 @@
   </head>
   
   <body>
-    @include('partials._nav')
+    <div id="app">
+      @include('partials._nav')
 
-    <div class="container">
-      @include('partials._message')
+      <div class="container">
+        @include('partials._message')
 
-      @yield('content')
+        {{Auth::check() ? "登入" : "登出"}}
 
-      @include('partials._footer')
+        @yield('content')
 
-    </div> <!-- End of container -->
+        @include('partials._footer')
 
-    @include('partials._javascript')
+      </div> <!-- End of container -->
 
-    @yield('scripts')
+      @include('partials._javascript')
 
+      @yield('scripts')
+    </div>
   </body>
 </html>
