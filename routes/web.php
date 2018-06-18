@@ -1,5 +1,8 @@
 <?php
 
+use App\Post;
+use App\Http\Resources\Posts as PostResource;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +21,11 @@ Route::group(['middleware'=>'web'],function(){
 	Route::get('about','PagesController@getAbout');
 	Route::get('/','PagesController@getIndex');
 	Route::resource('posts','PostController');
+	Route::get('/resource/posts', function() {
+		return PostResource::collection(Post::all());
+	});
 
 });
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
