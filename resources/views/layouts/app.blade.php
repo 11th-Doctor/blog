@@ -66,7 +66,7 @@
                 </div>
             </div>
         </nav>
-        {{ Auth::Check() ? "登入" : "登出"}}
+        {{-- {{ Auth::Check() ? "登入" : "登出"}} --}}
         <main class="py-4">
             @yield('content')
         </main>
