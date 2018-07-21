@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="{{Request::is('/') ? 'active':''}}"><a href="/">首頁</a></li>
-            <li class="{{Request::is('blog') ? 'active':''}}"><a href="blog">部落格</a></li>
+            <li class="{{Request::is('blog') ? 'active':''}}"><a href="/blog">部落格</a></li>
             <li class="{{Request::is('about') ? 'active':''}}"><a href="/about">關於我</a></li>
             <li class="{{Request::is('contact') ? 'active':''}}"><a href="/contact">聯絡我</a></li>
           </ul>

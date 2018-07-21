@@ -12,7 +12,7 @@
       <div class="container">
         @include('partials._message')
 
-        {{Auth::check() ? "登入" : "登出"}}
+        {{-- {{Auth::check() ? "登入" : "登出"}} --}}
 
         @yield('content')
 
