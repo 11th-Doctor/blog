@@ -20,7 +20,10 @@ Route::group(['middleware'=>'web'],function(){
 	Route::get('contact','PagesController@getContact'); //(url,controller)
 	Route::get('about','PagesController@getAbout');
 	Route::get('/','PagesController@getIndex');
+
 	Route::resource('posts','PostController');
+	Route::resource('categories','categoryController',['except' => ['create']]);
+
 	Route::get('/resource/posts', function() {
 		return PostResource::collection(Post::all());
 	});
