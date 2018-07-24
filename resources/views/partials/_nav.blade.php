@@ -30,13 +30,12 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="{{route('posts.index')}}">所有文章</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
+                  <li><a href="{{ route('categories.index')}}">文章分類</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a class="dropdown-item" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
-                          {{ __('Logout') }}
+                          {{ __('登出') }}
                       </a>
                   </li>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
