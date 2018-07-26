@@ -14,6 +14,10 @@
 						<p><a href="{{route('blog.single',$post->slug)}}">{{ route('blog.single',$post->slug) }}</a></p>
 					</dl>
 					<dl class="dl-horizontal">
+						<label for="slu">文章分類:</label>
+						<p>{{ $post->category->name }}</p>
+					</dl>
+					<dl class="dl-horizontal">
 					  <label>建立時間: </label>
 					  <p>{{date('Y-m-d-l G.i.s A',strtotime($post->created_at))}}</p>
 					</dl>

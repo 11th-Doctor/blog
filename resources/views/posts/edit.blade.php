@@ -11,6 +11,8 @@
 			{{Form::text('title',null,['class' => 'form-control input-lg'])}}
 			{{Form::label('slug','代稱',['class'=>'form-spacing-top'])}}
 			{{Form::text('slug',null,['class'=>'form-control'])}}
+			{{Form::label('category_id',"文章分類", ['class' => 'form-spacing-top'])}}
+			{{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}
 			{{Form::label('body','本文:',['class' => 'form-spacing-top'])}}
 			{{Form::textarea('body',null,['class' => 'form-control'])}}
 		</div>
