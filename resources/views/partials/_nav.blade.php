@@ -30,7 +30,8 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="{{route('posts.index')}}">所有文章</a></li>
-                  <li><a href="{{ route('categories.index')}}">文章分類</a></li>
+                  <li><a href="{{route('categories.index')}}">文章分類</a></li>
+                  <li><a href="{{route('tags.index')}}">文章標籤</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a class="dropdown-item" href="{{ route('logout') }}"
                          onclick="event.preventDefault();
