@@ -24,10 +24,10 @@
 			</table>
 		</div> <!-- end of col-md-8 -->
 
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="well">
 				{!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
-				<h2>新增新的分類</h2>
+				<h2>新增一個新的分類</h2>
 				{{ Form::label('name','分類名稱:') }}
 				{{ Form::text('name', null, ['class' => 'form-control']) }}
 				{{Form::submit('建立一個新的分類',['class' => 'btn btn-primary btn-block btn-h1-spacing'])}}
