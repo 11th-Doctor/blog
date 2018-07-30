@@ -4,6 +4,7 @@
 
 	@section('stylesheets')
 		{!!Html::style('css/parsley.css')!!}
+		{!!Html::style('css/select2.min.css')!!}
 	@endsection
 
 	@section('content')
@@ -23,6 +24,12 @@
 		   					<option value="{{ $category->id }}">{{ $category->name}}</option>
 		   				@endforeach
 		   			</select>
+		   			{{Form::label('tags','標籤',['class'=>'form-spacing-top'])}}
+		   			<select name="tags[]" class="form-control js-example-basic-multiple" multiple="multiple">
+		   				@foreach($tags as $tag)
+		   					<option value="{{$tag->id}}">{{$tag->name}}</option>
+		   				@endforeach
+		   			</select>
 		   			{{Form::label('body','本文:',['class'=>'form-spacing-top'])}}
 		   			{{Form::textarea('body',null,['class'=>'form-control','required'=>''])}}
 		   			{{Form::submit('新增貼文',['class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:20px'])}}
@@ -33,7 +40,11 @@
 
 	@section('scripts')
 		{!!Html::script('js/parsley.min.js')!!}
+		{!!Html::script('js/select2.min.js')!!}
 		<script>
 			$('#form').parsley();
+			$(document).ready(function() {
+   			 $('.js-example-basic-multiple').select2();
+			});
 		</script>
 	@endsection

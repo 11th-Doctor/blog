@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 use Session;
 
 class PostController extends Controller
@@ -42,7 +43,8 @@ class PostController extends Controller
     public function create()
     {   
         $categories = Category::all();
-        return view('posts.create')->withCategories($categories);
+        $tags = Tag::all();
+        return view('posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -53,6 +55,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         //validate the data
         $this->validate($request,array(
             'title' => 'required|max:255',
@@ -69,6 +72,11 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
 
         $post->save();
+
+        //It should be done after save
+        //sync([array],bool)
+        //false - adding an association instead of overiding the existing association
+        $post->tags()->sync($request->tags, false);
 
         Session::flash('success','貼文新增成功'); 
         //redirect to another page
@@ -103,8 +111,13 @@ class PostController extends Controller
         foreach ($categories as $category) {
             $cats[$category->id] = $category->name;
         }
+        $tags = Tag::all();
+        $subTags = array();
+        foreach ($tags as $tag) {
+            $subTags[$tag->id] = $tag->name;
+        }
         //retun the view and pass in the var we previously created
-        return view('posts.edit')->withPost($post)->withCategories($cats);
+        return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($subTags);
     }
 
     /**
@@ -143,6 +156,8 @@ class PostController extends Controller
 
         $post->save();
 
+
+        $post->tags()->sync($request->tags);
         //Set flash data with success message
         Session::flash('success','儲存成功');
 
