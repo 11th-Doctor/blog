@@ -33,6 +33,6 @@
 					{{Form::submit('建立一個新的標籤', ['class' => 'btn btn-primary btn-block btn-h1-spacing'])}}
 				{!! Form::close() !!}
 			</div>
-		</div>
+		</div> {{--End of col-md-4 --}}
 	</div>
 @endsection

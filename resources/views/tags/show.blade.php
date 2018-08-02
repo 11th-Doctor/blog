@@ -7,8 +7,13 @@
 			<div class="col-md-8">
 				<h1>{{$tag->name}} 標籤 <small>{{ $tag->posts()->count() }} 則貼文</small></h1>
 			</div> <!--end of col-md-8-->
-			<div class="col-md-2 col-md-offset-2">
-				<a href="{{route('tags.edit', $tag->id)}}" class="btn btn-primary pull-right btn-block" style="margin-top: 20px">編輯</a>
+			<div class="col-md-2">
+				<a href="{{route('tags.edit', $tag->id)}}" class="btn btn-primary pull-right btn-block btn-h1-spacing">編輯標籤</a>
+			</div>
+			<div class="col-md-2">
+				{{Form::open(['route' => ['tags.destroy', $tag->id],'method' => 'DELETE'])}}
+					{{Form::Submit("刪除標籤", ['class' => 'btn btn-danger btn-block btn-h1-spacing'])}}
+				{{Form::close()}}
 			</div>
 		</div>
 
