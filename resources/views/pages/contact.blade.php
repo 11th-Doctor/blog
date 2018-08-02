@@ -8,7 +8,8 @@
       <div class="col-md-12">
           <h1>請聯絡我</h1>
           <hr>
-          <form>
+          <form action="{{url('contact')}}" method = "POST">
+              {{csrf_field()}}
               <div class="form-group">
                   <label for="email" class="label-control">Email: </label>
                   <input type="text" name="email" id="email" class="form-control">
