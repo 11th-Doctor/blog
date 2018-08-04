@@ -22,6 +22,9 @@ Route::group(['middleware'=>'web'],function(){
 	Route::get('about','PagesController@getAbout');
 	Route::get('/','PagesController@getIndex');
 
+	//comment
+	Route::post('comments/{post_id}', ['as' => 'comments.store', 'uses' => 'CommentsController@store']);
+
 	//resource
 	Route::resource('posts','PostController');
 	Route::resource('categories','CategoryController',['except' => ['create']]);
