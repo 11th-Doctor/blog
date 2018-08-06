@@ -14,6 +14,35 @@
 						<span class="label label-default">{{$tag->name}}</span>
 					@endforeach
 				</div>
+
+				<div id="backend-comments" class="table-margin-top">
+					<h3><small>共有 </small>{{$post->comments()->count()}} <small> 則留言</small></h3>
+					<table class="table">
+						<thead>
+							<th>姓名</th>
+							<th>電子信箱</th>
+							<th>留言</th>
+							<th></th>
+						</thead>
+						<tbody>
+							@foreach($post->comments as $comment)
+								<tr>
+									<td>{{$comment->name}}</td>
+									<td>{{$comment->email}}</td>
+									<td>{{$comment->comment}}</td>
+									<td>
+										<a href="{{route('comments.edit', $comment->id)}}" class="btn btn-primary btn-xs">
+											<span class="glyphicon glyphicon-pencil"></span>
+										</a>
+										<a href="{{route('comments.delete', $comment->id)}}" class="btn btn-danger btn-xs">
+											<span class="glyphicon glyphicon-trash"></span>
+										</a>
+									</td>
+								</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="well">
