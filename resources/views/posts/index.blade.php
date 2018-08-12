@@ -31,8 +31,8 @@
 			  		<tr>
 			  			<td>{{$post->id}}</td>
 			  			<td>{{$post->title}}</td>
-			  			<td>{{mb_substr($post->body,0,45,'UTF-8')}}
-			  				{{strlen($post->body) >= 50 ? '...':''}}
+			  			<td>{!!mb_substr(strip_tags($post->body),0,45,'UTF-8')!!}
+			  				{!!strlen(strip_tags($post->body)) >= 50 ? '...':''!!}
 			  				</td>
 			  			<td>{{date('Y-m-d H.i A',strtotime($post->created_at))}}</td>
 			  			<td>

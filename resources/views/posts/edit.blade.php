@@ -4,6 +4,21 @@
 
 	@section('stylesheets')
 		{!!Html::style('css/select2.min.css')!!}
+		
+		<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+		<script>
+			tinymce.init({
+				selector: 'textarea',
+				branding: false,
+				menubar: false,
+				plugins: [
+					        "advlist autolink lists link image charmap print preview anchor",
+					        "searchreplace visualblocks code fullscreen",
+					        "insertdatetime media table contextmenu paste imagetools wordcount"
+					    	],
+    			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+			});
+		</script>
 	@endsection
 
 	@section('content')

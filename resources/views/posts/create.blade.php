@@ -5,8 +5,23 @@
 	@section('stylesheets')
 		{!!Html::style('css/parsley.css')!!}
 		{!!Html::style('css/select2.min.css')!!}
-	@endsection
 
+		<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+		<script>
+			tinymce.init({
+				selector: 'textarea',
+				branding: false,
+				menubar: false,
+				plugins: [
+					        "advlist autolink lists link image charmap print preview anchor",
+					        "searchreplace visualblocks code fullscreen",
+					        "insertdatetime media table contextmenu paste imagetools wordcount"
+					    	],
+    			toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+			});
+		</script>
+	@endsection
+	
 	@section('content')
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -31,7 +46,7 @@
 		   				@endforeach
 		   			</select>
 		   			{{Form::label('body','本文:',['class'=>'form-spacing-top'])}}
-		   			{{Form::textarea('body',null,['class'=>'form-control','required'=>''])}}
+		   			{{Form::textarea('body',null,['class'=>'form-control'])}}
 		   			{{Form::submit('新增貼文',['class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:20px'])}}
 				{!! Form::close() !!}
 			</div>
