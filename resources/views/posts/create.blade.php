@@ -28,23 +28,25 @@
 				<h1 >新增貼文</h1>
 				<hr>
 
-				{!! Form::open(['route' => 'posts.store','id' => 'form']) !!}
+				{!! Form::open(['route' => 'posts.store','id' => 'form', 'files' => true ]) !!}
 		   			{{Form::label('title','標題:')}}
 		   			{{Form::text('title',null,['class'=>'form-control','required'=>'','maxlength'=>'255 '])}}
-		   			{{Form::label('slug','代稱',['class'=>'form-spacing-top'])}}
+		   			{{Form::label('slug','代稱:',['class'=>'form-spacing-top'])}}
 		   			{{Form::text('slug',null,['class'=>'form-control','required','minlength'=>'5','maxlength'=>'255'])}}
-		   			{{Form::label('category_id','分類',['class'=>'form-spacing-top'])}}
+		   			{{Form::label('category_id','分類:',['class'=>'form-spacing-top'])}}
 		   			<select name="category_id" class="form-control">
 		   				@foreach($categories as $category)
 		   					<option value="{{ $category->id }}">{{ $category->name}}</option>
 		   				@endforeach
 		   			</select>
-		   			{{Form::label('tags','標籤',['class'=>'form-spacing-top'])}}
+		   			{{Form::label('tags','標籤:',['class'=>'form-spacing-top'])}}
 		   			<select name="tags[]" class="form-control js-example-basic-multiple" multiple="multiple">
 		   				@foreach($tags as $tag)
 		   					<option value="{{$tag->id}}">{{$tag->name}}</option>
 		   				@endforeach
 		   			</select>
+		   			{{Form::label('featured_image','圖片上傳:',['class'=>'form-spacing-top'])}}
+		   			{{Form::file('featured_image',null)}}
 		   			{{Form::label('body','本文:',['class'=>'form-spacing-top'])}}
 		   			{{Form::textarea('body',null,['class'=>'form-control'])}}
 		   			{{Form::submit('新增貼文',['class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:20px'])}}
