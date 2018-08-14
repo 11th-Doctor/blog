@@ -24,7 +24,7 @@
 	@section('content')
 
 		<div class="row">
-			{!!Form::model($post,['route' => ['posts.update',$post->id],'method'=>'PUT'])!!}
+			{!!Form::model($post,['route' => ['posts.update',$post->id],'method' => 'PUT','files' => true])!!}
 			<div class="col-md-8">
 				{{Form::label('title','標題:')}}
 				{{Form::text('title',null,['class' => 'form-control input-lg'])}}
@@ -34,6 +34,9 @@
 
 				{{Form::label('category_id',"文章分類", ['class' => 'form-spacing-top'])}}
 				{{Form::select('category_id', $categories, null, ['class' => 'form-control'])}}
+
+				{{Form::label('featured_image', '相片:', ['class' => 'form-spacing-top'])}}
+				{{Form::file('featured_image',null)}}
 
 				{{Form::label('tags','標籤:',['class' => 'form-spacing-top'])}}
 				{{Form::select('tags[]', $tags, null, ['class' => 'form-control js-example-basic-multiple', 'multiple' => 'multiple'])}}
